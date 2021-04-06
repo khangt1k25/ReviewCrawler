@@ -26,7 +26,10 @@ class ReviewSpider(CrawlSpider):
 
     name = 'review'
     start_urls = [listing_url_base % i for i in range(1, 301, 20)]
+    allow_domains = ['airbnb.com.vn']
 
+
+    
     # Start to get API list of listing_ids
     def start_requests(self):
 
