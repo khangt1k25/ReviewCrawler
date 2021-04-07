@@ -62,9 +62,21 @@ DOWNLOAD_DELAY = 3
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'airbnb.pipelines.AirbnbPipeline': 300,
-#}
+ITEM_PIPELINES = {
+    'airbnb.pipelines.AirbnbPipeline':300,
+}
+DEFAULT_ITEM_CLASS = 'airbnb.items.AirbnbItem'
+ITEM_PIPELINES = {
+    'scrapyelasticsearch.scrapyelasticsearch.ElasticSearchPipeline':100,
+}
+ELASTICSEARCH_SERVER = 'localhost:9200' 
+ELASTICSEARCH_PORT = 9200 
+ELASTICSEARCH_INDEX = 'scrapy'
+ELASTICSEARCH_TYPE = 'items'
+ELASTICSEARCH_UNIQ_KEY = 'review_id'
+ELASTICSEARCH_BUFFER_LENGTH = 10
+
+
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

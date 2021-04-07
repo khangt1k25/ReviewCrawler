@@ -5,9 +5,19 @@
 
 
 # useful for handling different item types with a single interface
-from itemadapter import ItemAdapter
+
+import scrapy
+from scrapy.exceptions import DropItem
+
+
 
 
 class AirbnbPipeline:
     def process_item(self, item, spider):
         return item
+
+
+
+# class ElasticsearchPipeline(object):
+#     def process_item(self, item, spider):
+#         return item
